@@ -24,7 +24,7 @@ st.markdown(
     - Estimate inventory-related cost impact
     """
 )
-st.divider()
+st.markdown("---")
 st.subheader("📝 How to Use")
 
 st.markdown(
@@ -35,7 +35,7 @@ st.markdown(
     **Step 4:** View and download inventory recommendations  
     """
 )
-st.divider()
+st.markdown("---")
 # Sidebar controls (business assumptions)
 st.sidebar.header("Business Assumptions")
 
@@ -80,7 +80,7 @@ st.download_button(
     file_name="sample_sales_data.csv",
     mime="text/csv"
 )
-st.divider()
+st.markdown("---")
 st.subheader("📤 Upload Your Sales Data")
 uploaded_file = st.file_uploader(
     "Upload sales CSV",
@@ -138,7 +138,7 @@ if uploaded_file is not None:
             label="Estimated Total Inventory Cost",
             value=f"{total_cost:,.2f}"
         )
-        st.divider()
+        st.markdown("---")
         # Downloadable output
         csv = final[display_cols].to_csv(index=False)
 
