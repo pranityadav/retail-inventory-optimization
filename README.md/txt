@@ -1,55 +1,162 @@
-# Retail Demand Forecasting & Inventory Optimization System
+📦 Retail Inventory Optimization using Machine Learning
 
-## Problem Statement
+🔍 Overview
 
-Retail businesses frequently lose revenue due to poor inventory decisions — either by stocking too little (stockouts) or too much (overstocking). Traditional inventory planning often relies on intuition or naive heuristics, leading to avoidable losses.
+Retail businesses frequently lose money due to poor inventory decisions—either stocking too little (leading to stockouts and lost sales) or stocking too much (leading to excess holding costs and wastage).
 
-## Solution Overview
+This project is an end-to-end data science system that:
+	•	Forecasts product demand using machine learning
+	•	Converts forecasts into actionable inventory recommendations
+	•	Estimates financial impact using inventory cost simulation
+	•	Provides a user-friendly web interface for non-technical users
 
-This project builds an end-to-end data science system that forecasts product demand and converts those predictions into actionable inventory recommendations. Instead of stopping at prediction accuracy, the system simulates real-world inventory costs to quantify business impact.
+The system is designed as a decision-support tool, not just a predictive model.
 
-## Key Features
+⸻
 
-- Multi-product demand forecasting using XGBoost
-- Time-series feature engineering (lags, rolling statistics, calendar effects)
-- Inventory optimization using safety stock logic
-- Simulation of understock and overstock costs
-- User-friendly web application for CSV-based input and output
+🎯 Problem Statement
 
-## How the System Works
+Most small and mid-size retailers rely on:
+	•	intuition,
+	•	recent sales trends,
+	•	or naive heuristics (e.g., yesterday’s sales = tomorrow’s stock)
 
-1. User uploads historical sales data (CSV)
-2. The system validates and preprocesses the data
-3. Demand is forecasted for each product independently
-4. Forecasts are converted into inventory decisions
-5. Inventory costs are simulated to estimate financial impact
-6. Results are presented and downloadable as a CSV
+These approaches ignore demand patterns, seasonality, and uncertainty, resulting in:
+	•	frequent stockouts
+	•	overstocking
+	•	avoidable revenue loss
 
-## Business Impact
+⸻
 
-Compared to a naive inventory strategy (using previous-day stock levels), the ML-driven approach reduced simulated inventory-related costs by approximately **62%** under defined cost assumptions.
+💡 Solution
 
-## Tech Stack
+This project builds a pipeline that goes beyond prediction accuracy and focuses on business decisions:
+	1.	Demand Forecasting
+Uses historical sales data to predict near-term product demand using XGBoost.
+	2.	Inventory Optimization
+Converts predicted demand into recommended stock levels using safety-stock logic.
+	3.	Cost Simulation
+Quantifies the financial impact of:
+	•	understocking (lost sales)
+	•	overstocking (holding costs)
+	4.	Web Application
+A Streamlit-based UI allows store owners to upload sales data and receive:
+	•	recommended inventory levels
+	•	forecasted demand
+	•	estimated cost impact
+	•	downloadable results
 
-- Python
-- Pandas, NumPy
-- Scikit-learn
-- XGBoost
-- Streamlit
+⸻
 
-## Project Structure
+🚀 Key Features
+	•	Multi-product demand forecasting
+	•	Time-series feature engineering (lags, rolling statistics, calendar features)
+	•	Machine learning model using XGBoost
+	•	Baseline vs ML model comparison
+	•	Inventory decision logic with cost assumptions
+	•	Interactive web interface (CSV upload → results)
+	•	Fully deployed public web app
 
-retail-demand-forecasting/
+⸻
+
+📊 Business Impact
+
+Under simulated inventory cost assumptions, the ML-driven strategy achieved:
+
+~62% reduction in inventory-related costs
+compared to a naive baseline strategy.
+
+This demonstrates how predictive models can translate into measurable operational impact, not just better metrics.
+
+⸻
+
+🖥️ Live Demo
+
+🔗 Live Web App:
+https://retail-inventory-optimization.streamlit.app
+
+⸻
+
+📂 Input Data Format
+
+The application expects a CSV file with the following columns:
+date,store_id,item_id,sales
+
+Column Description
+	•	date – Date of sale (YYYY-MM-DD)
+	•	store_id – Store identifier
+	•	item_id – Product identifier
+	•	sales – Units sold
+
+A sample CSV is provided directly in the web app for reference.
+
+⸻
+
+📤 Output
+
+For each product, the system produces:
+	•	Forecasted demand
+	•	Recommended inventory level
+	•	Estimated inventory-related cost
+	•	Downloadable CSV for operational use
+
+⸻
+
+🛠️ Tech Stack
+	•	Language: Python
+	•	Data Processing: Pandas, NumPy
+	•	Modeling: Scikit-learn, XGBoost
+	•	Web App: Streamlit
+	•	Deployment: Streamlit Community Cloud
+
+⸻
+
+🧱 Project Structure
+retail-inventory-optimization/
 ├── app/
-│ └── app.py
-├── data/
-│ └── sample_input.csv
-├── models/
-│ └── xgboost_demand_forecaster.pkl
+│   └── app.py                # Streamlit web application
 ├── src/
-│ ├── preprocessing.py
-│ ├── forecasting.py
-│ └── inventory.py
+│   ├── preprocessing.py      # Data validation & feature engineering
+│   ├── forecasting.py        # Model loading & prediction
+│   └── inventory.py          # Inventory decision logic
+├── models/
+│   └── xgboost_demand_forecaster.pkl
 ├── notebooks/
-├── README.md
-└── requirements.txt
+│   └── exploratory analysis & experiments
+├── data/
+│   └── sample input data
+├── requirements.txt
+├── runtime.txt
+└── README.md
+
+⸻
+
+⚠️ Assumptions & Limitations
+	•	Input data must follow the specified CSV schema
+	•	Forecasts assume future demand patterns resemble historical trends
+	•	Cost estimates depend on assumed understock and overstock penalties
+	•	The system is intended for decision support, not guaranteed profit
+
+⸻
+
+🔮 Future Improvements
+	•	Per-product cost configuration
+	•	Lead-time-aware inventory planning
+	•	Probabilistic forecasting with confidence intervals
+	•	Automated model retraining with new data
+	•	Integration with POS / ERP systems
+
+⸻
+
+🧠 What This Project Demonstrates
+	•	Translating ML outputs into business decisions
+	•	End-to-end ownership (data → model → deployment)
+	•	Practical trade-offs in real-world systems
+	•	Clear separation between modeling and decision logic
+
+⸻
+
+📌 Author
+
+Pranit Yadav
+Aspiring Data Scientist | Machine Learning | Applied Analytics
