@@ -71,7 +71,7 @@ sample_df = pd.DataFrame({
     "sales": [20, 18, 22]
 })
 
-st.table(df)
+st.table(sample_df)
 sample_csv = sample_df.to_csv(index=False)
 
 st.download_button(
