@@ -1,9 +1,9 @@
 import sys
 import os
-
+import pandas as pd
+pd.options.mode.string_storage = "python"
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import streamlit as st
-import pandas as pd
 import numpy as np
 
 from src.preprocessing import validate_input, preprocess
@@ -71,7 +71,7 @@ sample_df = pd.DataFrame({
     "sales": [20, 18, 22]
 })
 
-st.dataframe(sample_df.astype(str), use_container_width=True)
+st.table(df)
 sample_csv = sample_df.to_csv(index=False)
 
 st.download_button(
