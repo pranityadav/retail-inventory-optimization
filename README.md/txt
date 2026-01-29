@@ -1,0 +1,55 @@
+# Retail Demand Forecasting & Inventory Optimization System
+
+## Problem Statement
+
+Retail businesses frequently lose revenue due to poor inventory decisions — either by stocking too little (stockouts) or too much (overstocking). Traditional inventory planning often relies on intuition or naive heuristics, leading to avoidable losses.
+
+## Solution Overview
+
+This project builds an end-to-end data science system that forecasts product demand and converts those predictions into actionable inventory recommendations. Instead of stopping at prediction accuracy, the system simulates real-world inventory costs to quantify business impact.
+
+## Key Features
+
+- Multi-product demand forecasting using XGBoost
+- Time-series feature engineering (lags, rolling statistics, calendar effects)
+- Inventory optimization using safety stock logic
+- Simulation of understock and overstock costs
+- User-friendly web application for CSV-based input and output
+
+## How the System Works
+
+1. User uploads historical sales data (CSV)
+2. The system validates and preprocesses the data
+3. Demand is forecasted for each product independently
+4. Forecasts are converted into inventory decisions
+5. Inventory costs are simulated to estimate financial impact
+6. Results are presented and downloadable as a CSV
+
+## Business Impact
+
+Compared to a naive inventory strategy (using previous-day stock levels), the ML-driven approach reduced simulated inventory-related costs by approximately **62%** under defined cost assumptions.
+
+## Tech Stack
+
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- XGBoost
+- Streamlit
+
+## Project Structure
+
+retail-demand-forecasting/
+├── app/
+│ └── app.py
+├── data/
+│ └── sample_input.csv
+├── models/
+│ └── xgboost_demand_forecaster.pkl
+├── src/
+│ ├── preprocessing.py
+│ ├── forecasting.py
+│ └── inventory.py
+├── notebooks/
+├── README.md
+└── requirements.txt
