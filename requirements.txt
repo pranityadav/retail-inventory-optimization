@@ -4,3 +4,4 @@ scikit-learn
 xgboost
 streamlit
 joblib
+altair<5
