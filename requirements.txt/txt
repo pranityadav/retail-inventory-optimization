@@ -1,7 +1,0 @@
-## Input Data Format
-
-The application expects a CSV file with the following columns:
-
-```csv
-date,store_id,item_id,sales
-```
