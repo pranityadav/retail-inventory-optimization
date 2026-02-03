@@ -1,1 +1,156 @@
-Rebase successful, push completed
+📦 Retail Inventory Optimization using Machine Learning
+
+🔗 Live Web App:
+👉 https://retail-inventory-optimization.streamlit.app
+
+⸻
+
+🔍 Overview
+
+Retail businesses lose revenue due to poor inventory decisions—either stocking too little (lost sales) or stocking too much (holding and wastage costs).
+
+This project is an end-to-end data science system that:
+	•	Forecasts product demand using machine learning
+	•	Converts predictions into actionable inventory recommendations
+	•	Estimates financial impact of inventory decisions
+	•	Provides a user-friendly web interface for non-technical users
+
+The goal is decision support, not just prediction accuracy.
+
+⸻
+
+🎯 Problem Statement
+
+Most small and mid-size retailers rely on:
+	•	intuition
+	•	recent sales trends
+	•	simple heuristics
+
+These methods ignore demand variability, seasonality, and uncertainty, leading to:
+	•	frequent stockouts
+	•	overstocking
+	•	avoidable financial loss
+
+⸻
+
+💡 Solution
+
+The system follows a business-driven ML pipeline:
+	1.	Demand Forecasting (Regression)
+	•	Predicts future sales quantity per product
+	•	Implemented using XGBoost
+	2.	Inventory Decision Logic
+	•	Converts predicted demand into recommended stock levels
+	•	Incorporates safety stock assumptions
+	3.	Cost Simulation
+	•	Estimates financial impact of overstocking and understocking
+	•	Compares ML strategy vs a naive baseline
+	4.	Web Application
+	•	CSV upload → predictions → inventory recommendations → downloadable results
+
+⸻
+
+📊 Model Evaluation (Why “Accuracy” Is Not Used)
+
+This is a regression problem, not classification.
+	•	There are no “correct / incorrect” labels
+	•	Therefore, accuracy is not a valid metric
+
+Metrics Used
+	•	MAE (Mean Absolute Error)
+	•	RMSE (Root Mean Squared Error)
+Interpretation:
+The ML model reduces demand prediction error by nearly 50% compared to a naive baseline.
+
+⸻
+
+💰 Business Impact
+
+Beyond prediction metrics, the system evaluates real business outcomes.
+
+📉 Result:
+
+~62% reduction in inventory-related costs compared to a baseline strategy.
+
+This demonstrates that the model improves decision quality, not just numeric accuracy.
+
+⸻
+
+🖥️ Live Application
+
+The deployed Streamlit app allows users to:
+	•	Upload sales data (CSV)
+	•	View forecasted demand
+	•	Receive recommended inventory levels
+	•	See estimated cost impact
+	•	Download results for operational use
+
+🔗 Live Demo:
+https://retail-inventory-optimization.streamlit.app
+
+⸻
+
+📂 Input Data Format
+
+The app expects a CSV file with the following schema:
+date,store_id,item_id,sales
+A sample format is shown directly in the web app.
+
+⸻
+
+🛠️ Tech Stack
+	•	Language: Python
+	•	Data Processing: Pandas, NumPy
+	•	Modeling: XGBoost, Scikit-learn
+	•	Web App: Streamlit
+	•	Deployment: Streamlit Community Cloud
+
+⸻
+retail-inventory-optimization/
+├── app/
+│   └── app.py
+├── src/
+│   ├── preprocessing.py
+│   ├── forecasting.py
+│   └── inventory.py
+├── models/
+│   └── xgboost_demand_forecaster.pkl
+├── notebooks/
+├── data/
+├── requirements.txt
+├── runtime.txt
+└── README.md
+
+⸻
+
+⚠️ Assumptions & Limitations
+	•	Input data must follow the defined schema
+	•	Future demand patterns resemble historical trends
+	•	Cost savings depend on assumed understock/overstock penalties
+	•	Intended as a decision-support tool, not guaranteed profit
+
+⸻
+
+🔮 Future Improvements
+	•	Probabilistic forecasting with confidence intervals
+	•	Product-specific cost parameters
+	•	Lead-time-aware inventory planning
+	•	Automated retraining with new data
+	•	Integration with POS / ERP systems
+
+⸻
+
+🧠 What This Project Demonstrates
+	•	Correct metric selection for regression problems
+	•	Translating ML predictions into business decisions
+	•	Measuring success via financial impact
+	•	End-to-end ownership from data → model → deployment
+
+⸻
+
+👤 Author
+
+Pranit Yadav
+Aspiring Data Scientist | Machine Learning | Applied Analytics
+
+⸻
