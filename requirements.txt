@@ -6,3 +6,4 @@ streamlit
 joblib
 altair<5
 standard-imghdr
+anthropic
